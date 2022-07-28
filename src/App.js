@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-//import icones : 
+//import icones :
 import { library } from "@fortawesome/fontawesome-svg-core";
-import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 //import components :
 import Header from "./assets/components/Header";
 
-//import pages : 
-import Home from "./assets/pages/Home"
+//import pages :
+import Home from "./assets/pages/Home";
 import Product from "./assets/pages/Product";
 
 library.add(faMagnifyingGlass);
@@ -32,8 +32,8 @@ function App() {
 
   useEffect(() => {
     fetchData();
+// eslint-disable-next-line
   }, []);
-
 
   return isLoading ? (
     console.log("is Loading")

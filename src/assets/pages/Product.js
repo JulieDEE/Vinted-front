@@ -17,6 +17,7 @@ const Product = () => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   return isLoading ? (
