@@ -13,6 +13,7 @@ import Header from "./assets/components/Header";
 //import pages :
 import Home from "./assets/pages/Home";
 import Product from "./assets/pages/Product";
+import Signup from "./assets/pages/Signup"
 
 library.add(faMagnifyingGlass);
 
@@ -44,7 +45,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home data={data} />} />
         <Route path={`/product/:productId`} element={<Product data={data} />} />
-      </Routes>
+        <Route path={`/user/signup`} element={<Signup />} />
+      </Routes> 
     </Router>
   );
 }

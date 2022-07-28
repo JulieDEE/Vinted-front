@@ -1,0 +1,56 @@
+.signup-form{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 20px;
+    padding: 0 20px;
+  
+}
+
+.signup-form input{
+    height: 50px;
+    border-bottom: 1px solid lightsalmon;
+    border-radius: 0;
+    background-color: white;
+}
+
+.checkbox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap : 20px; 
+}
+
+.checkbox h3{
+font-weight: 400;
+}
+
+.checkbox input{
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 25px;
+}
+
+.signup-btn{
+    height: 50px;
+    background-color: #02B2BC;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    color : white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.connect {
+    font-size: 13px;
+    color :#02B2BC;
+    cursor: pointer;
+}
+
+
+
