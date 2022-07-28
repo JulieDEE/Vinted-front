@@ -1,0 +1,58 @@
+.seeAll{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding : 10px;
+    height: 100px; 
+}
+
+.seeAll h1{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.seeAll a {
+    color : #017782
+}
+
+
+.data-cards{
+    display: flex; 
+    flex-wrap: wrap;
+    gap : 12px;
+}
+
+.data-cards-link{
+    width: calc(20% - 20px);
+    margin : 5px;
+}
+
+
+.card{
+    height: 470px;
+    display: flex;
+    flex-direction: column;
+    gap : 5px;
+    cursor: pointer;
+}
+
+.image img{
+    height: 360px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card .name{
+    text-align: center;
+}
+
+.description{
+    font-size: 11px;
+    color : rgb(144, 141, 141)
+}
+
+.description .price{
+    font-size: 13px;
+    color : black
+}
+

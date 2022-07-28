@@ -1,0 +1,118 @@
+
+/* NAVBAR */
+
+header {
+  height: 120px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.searchBar {
+  flex: 1;
+  background-color: #F5F6F7;
+  height: 39px;
+  width: 100%;
+  margin : 0 50px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding : 10px;
+}
+
+input{
+width: 100%;
+height: 100%;
+padding : 10px;
+border: none;
+background-color: #F5F6F7;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.log{
+  display: flex;
+  gap : 20px;
+}
+
+.log button{
+  height: 30px;
+  border-radius: 5px;
+  padding : 5px;
+  cursor: pointer;
+}
+
+.inscription-btn{
+  color :#017782;
+  border : 1px solid #017782;
+  background-color: white;
+}
+
+.connect-btn{
+  color :#017782;
+  border : 1px solid #017782;
+  background-color: white;
+}
+
+.sell-btn{
+  background-color: #017782;
+  color: white;
+  border : none;
+}
+
+/* HEROS BANNER  */
+
+.hero-banner{
+height: 450px;
+width: 100vw;
+position : relative;
+margin-bottom: 20px;
+}
+
+.hero-banner .hero{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.banner-text{
+    height: 270px;
+    background-color: white;
+    width: 40%;
+    position : absolute;
+    top : 20%;
+    left : 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap : 50px;
+    padding : 25px;
+}
+
+.hero-btn{
+    width: 187px;
+    height: 45px;
+    background-color: #017782;
+    border : none;
+    border-radius: 5px;
+    color : white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tear{
+  position : absolute;
+  bottom : 0;
+  right : 0; 
+  height: 10%;
+}
