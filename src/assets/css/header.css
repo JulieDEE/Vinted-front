@@ -12,6 +12,7 @@ header {
 
 .logo img {
   height: 50px;
+  cursor: pointer;
 }
 
 .searchBar {
@@ -63,6 +64,13 @@ input:focus {
   color: white;
   border : none;
 }
+
+.disconnect-btn{
+  background-color: #e72753;
+  color: white;
+  border : none;
+}
+
 
 
 

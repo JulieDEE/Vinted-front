@@ -1,41 +1,53 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsLetter] = useState(false);
 
-
-  const fetchData = async () => {
-    const response = await axios.post(
-      "http:/localhost:4000/user/signup",
-      {
-      username: { userName },
-      email: { email },
-      password: { password },
-      newsletter: { newsletter },
-      }
+    const navigate = useNavigate()
     
-    );
-      console.log(response.data);
+  const fetchData = async () => {
+    try {
+      const response = await axios.post(
+        "https://vinted-api-serveur.herokuapp.com/user/signup",
+        {
+          username,
+          email,
+          password,
+          newsletter,
+        }
+      );
+        
+        const token = response.data.token
+        
+        console.log(response.data);
+
+        navigate("/user/login")
+
+    } catch (err) {
+      console.log(err.response);
+    }
   };
 
-    fetchData()
-    
   return (
     <form
       className="signup-form wrapper"
       method="post"
-    //   onSubmit={() => fetchData()}
+      onSubmit={(e) => {
+        e.preventDefault();
+        fetchData();
+      }}
     >
       <h2>S'inscrire</h2>
       <input
         type="text"
         className="name"
         placeholder="Nom d'utilisateur"
-        value={userName}
+        value={username}
         onChange={(e) => setUserName(e.target.value)}
       />
       <input
@@ -62,7 +74,6 @@ const Signup = () => {
       <p className="connect">Tu as déjà un compte ? Connecte-toi !</p>
     </form>
   );
-  //   );
 };
 
 export default Signup;

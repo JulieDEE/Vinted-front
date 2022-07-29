@@ -1,16 +1,16 @@
-import logo from "../images/logo.png"
+import logo from "../images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
+const Header = ({ userToken, setUserToken }) => {
+  const navigate = useNavigate();
 
-const Header = () => {
-
-  const navigate = useNavigate()
 
   return (
     <header>
       <div className="logo">
-        <img src={logo} alt="" />
+        <img src={logo} onClick={() => navigate("/")} alt="logo" />
       </div>
       <div className="searchBar">
         <div className="icon">
@@ -18,10 +18,35 @@ const Header = () => {
         </div>
         <input type="search" placeholder="Rechercher des articles" />
       </div>
-      <div className="log">
-        <button className="inscription-btn" onClick={() => navigate("/user/signup")} >S'inscrire</button>
-        <button className="connect-btn">Se connecter</button>
-      </div>
+
+      {userToken === null ? (
+        <div className="log">
+          <button
+            className="inscription-btn"
+            onClick={() => navigate("/user/signup")}
+          >
+            S'inscrire
+          </button>
+          <button
+            className="connect-btn"
+            onClick={() => navigate("/user/login")}
+          >
+            Se connecter
+          </button>
+        </div>
+      ) : (
+        <div className="log">
+          <button
+            className="disconnect-btn"
+            onClick={() => {
+              Cookies.remove("token")
+              setUserToken(null);
+            }}
+          >
+            Deconnecter
+          </button>
+        </div>
+      )}
     </header>
   );
 };

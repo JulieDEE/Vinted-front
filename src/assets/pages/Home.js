@@ -7,7 +7,7 @@ const Home = ({ data }) => {
   return (
     <div className="app">
       <div className="hero-banner">
-              <img class = "hero" src={hero} alt="" />
+              <img className = "hero" src={hero} alt="" />
               <img className = "tear"src= {tear} alt="" />
         <div className="banner-text">
           <h1>Prêts à faire du tri dans vos placards ?</h1>

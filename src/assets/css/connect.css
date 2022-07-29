@@ -1,0 +1,30 @@
+.connect-form{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 20px;
+    padding: 0 20px;
+  
+}
+
+.connect-form input{
+    height: 50px;
+    border-bottom: 1px solid lightsalmon;
+    border-radius: 0;
+    background-color: white;
+}
+
+
+.connect-btn-2{
+    height: 50px;
+    background-color: #02B2BC;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    color : white;
+    font-size: 20px;
+    cursor: pointer;
+}
+

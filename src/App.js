@@ -13,13 +13,17 @@ import Header from "./assets/components/Header";
 //import pages :
 import Home from "./assets/pages/Home";
 import Product from "./assets/pages/Product";
-import Signup from "./assets/pages/Signup"
+import Signup from "./assets/pages/Signup";
+import Connect from "./assets/pages/Connect";
+
+import Cookies from "js-cookie";
 
 library.add(faMagnifyingGlass);
 
 function App() {
-  const [data, setData] = useState();
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [userToken, setUserToken] = useState(Cookies.get("token") || null);
 
   // appel de mon serveur pour récupérer toutes les offres disponibles
 
@@ -33,20 +37,26 @@ function App() {
 
   useEffect(() => {
     fetchData();
-// eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   return isLoading ? (
     console.log("is Loading")
   ) : (
     <Router>
-      <Header />
+      <Header setUserToken={setUserToken} userToken={userToken} />
 
       <Routes>
-        <Route path="/" element={<Home data={data} />} />
+        <Route path="/" element={<Home data={data} userToken={userToken} />} />
         <Route path={`/product/:productId`} element={<Product data={data} />} />
         <Route path={`/user/signup`} element={<Signup />} />
-      </Routes> 
+        <Route
+          path={`/user/login`}
+          element={
+            <Connect setUserToken={setUserToken} userToken={userToken} />
+          }
+        />
+      </Routes>
     </Router>
   );
 }
