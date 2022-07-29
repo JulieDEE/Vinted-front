@@ -1,30 +1,59 @@
-.connect-form{
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap : 20px;
-    padding: 0 20px;
+.connect-form {
+  width: 100vw;
+  z-index: 1;
+  height: 100vh;
+  gap: 20px;
+  position: absolute;
+  background-color: black;
+  opacity: 50%;
+}
+
+.connect-form-container{
+  width: 450px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 30px;
+  height: 500px;
+  gap: 60px;
+  position: absolute;
+  left: 35%;
+  top: 20%;
+  z-index: 1;
+  opacity: 1;
+  border-radius: 5px;
   
 }
 
-.connect-form input{
-    height: 50px;
-    border-bottom: 1px solid lightsalmon;
-    border-radius: 0;
-    background-color: white;
+.connect{
+display: flex;
+flex-direction: column;
+width: 100%;
+align-items: center;
+justify-content: space-between;
+gap : 30px;
 }
 
 
-.connect-btn-2{
-    height: 50px;
-    background-color: #02B2BC;
-    width: 100%;
-    border-radius: 10px;
-    border: none;
-    color : white;
-    font-size: 20px;
-    cursor: pointer;
+
+
+
+.item {
+  height: 50px;
+  border-bottom: 1px solid lightsalmon;
+  border-radius: 0;
+  background-color: white;
 }
 
+.connect-btn-2 {
+  height: 50px;
+  background-color: #02b2bc;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 30px;
+}

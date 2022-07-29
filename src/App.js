@@ -25,6 +25,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [userToken, setUserToken] = useState(Cookies.get("token") || null);
   const [signupForm, setSignUpForm] = useState(false);
+  const [connectForm, setConnectForm] = useState(false); 
 
   // appel de mon serveur pour récupérer toutes les offres disponibles
 
@@ -45,11 +46,13 @@ function App() {
     console.log("is Loading")
   ) : (
     <Router>
-      <Signup signupForm={signupForm} setSignUpForm={setSignUpForm} />
+        <Signup signupForm={signupForm} setSignUpForm={setSignUpForm} />
+        <Connect connectForm= {connectForm} setConnectForm = {setConnectForm} />
       <Header
         setUserToken={setUserToken}
         userToken={userToken}
-        setSignUpForm={setSignUpForm}
+          setSignUpForm={setSignUpForm}
+          setConnectForm={setConnectForm}
       />
 
       <Routes>

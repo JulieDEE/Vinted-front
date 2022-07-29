@@ -1,13 +1,10 @@
 import logo from "../images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import Cookies from "js-cookie";
 
-const Header = ({ userToken, setUserToken, setSignUpForm }) => {
+const Header = ({ userToken, setUserToken, setSignUpForm, setConnectForm }) => {
   const navigate = useNavigate();
-
-
 
   return (
     <header>
@@ -29,10 +26,7 @@ const Header = ({ userToken, setUserToken, setSignUpForm }) => {
           >
             S'inscrire
           </button>
-          <button
-            className="connect-btn"
-            onClick={() => navigate("/user/login")}
-          >
+          <button className="connect-btn" onClick={() => setConnectForm(true)}>
             Se connecter
           </button>
         </div>
@@ -41,7 +35,7 @@ const Header = ({ userToken, setUserToken, setSignUpForm }) => {
           <button
             className="disconnect-btn"
             onClick={() => {
-              Cookies.remove("token")
+              Cookies.remove("token");
               setUserToken(null);
             }}
           >
@@ -50,8 +44,6 @@ const Header = ({ userToken, setUserToken, setSignUpForm }) => {
         </div>
       )}
     </header>
-
-    
   );
 };
 

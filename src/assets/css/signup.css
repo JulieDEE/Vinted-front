@@ -27,6 +27,11 @@ form{
   top: 20%;
   z-index: 1;
   opacity: 1;
+  border-radius: 5px;
+}
+
+.form-container h2{
+    color : #05B1BC
 }
 
 .item {
