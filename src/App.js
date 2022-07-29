@@ -25,7 +25,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [userToken, setUserToken] = useState(Cookies.get("token") || null);
   const [signupForm, setSignUpForm] = useState(false);
-  const [connectForm, setConnectForm] = useState(false); 
+  const [connectForm, setConnectForm] = useState(false);
+  const [dataFilter, setDataFilters] = useState(null);
 
   // appel de mon serveur pour récupérer toutes les offres disponibles
 
@@ -42,21 +43,38 @@ function App() {
     // eslint-disable-next-line
   }, []);
 
+  //apel du serveur pour obtenir toutes les offres filtrées :
+
+  const filterOffers = async (filter) => {
+    const response = await axios.get(
+      `https://vinted-api-serveur.herokuapp.com/offers?${filter}`
+    );
+    setDataFilters(response.data);
+    setIsLoading(false);
+    console.log(response.data);
+  };
+
+  useEffect(() => {
+    fetchData();
+    // eslint-disable-next-line
+  }, []);
+
   return isLoading ? (
     console.log("is Loading")
   ) : (
     <Router>
-        <Signup signupForm={signupForm} setSignUpForm={setSignUpForm} />
-        <Connect connectForm= {connectForm} setConnectForm = {setConnectForm} />
+      <Signup signupForm={signupForm} setSignUpForm={setSignUpForm} />
+      <Connect connectForm={connectForm} setConnectForm={setConnectForm} />
       <Header
         setUserToken={setUserToken}
         userToken={userToken}
-          setSignUpForm={setSignUpForm}
-          setConnectForm={setConnectForm}
+        setSignUpForm={setSignUpForm}
+        setConnectForm={setConnectForm}
+        filterOffers={filterOffers}
       />
 
       <Routes>
-        <Route path="/" element={<Home data={data} userToken={userToken} />} />
+        <Route path="/" element={<Home data={data} userToken={userToken} dataFilter={dataFilter} />} />
         <Route path={`/product/:productId`} element={<Product data={data} />} />
         <Route path={`/user/signup`} element={<Signup />} />
         <Route

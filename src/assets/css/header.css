@@ -15,16 +15,38 @@ header {
   cursor: pointer;
 }
 
+.search{
+  display: flex;
+  flex-direction: column;
+  flex : 1;
+  width: 100%;
+  gap : 10px;
+}
+
 .searchBar {
-  flex: 1;
   background-color: #F5F6F7;
   height: 39px;
-  width: 100%;
+  width: 80%;
   margin : 0 50px;
   border-radius: 5px;
   display: flex;
   align-items: center;
   padding : 10px;
+}
+
+.filters{
+  display: flex;
+    margin : 0 50px;
+    gap : 10px;
+}
+
+.trie{
+  height: 30px;
+  width: 200px;
+}
+
+.price-filter{
+  width: 32%;
 }
 
 input{
