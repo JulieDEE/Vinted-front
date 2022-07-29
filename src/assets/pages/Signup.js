@@ -30,10 +30,10 @@ const Signup = ({ signupForm, setSignUpForm }) => {
         }
       );
 
-      const token = response.data.token;
+      // const token = response.data.token;
 
       console.log(response.data);
-      setSignUpForm(!signupForm)
+      setSignUpForm(!signupForm);
       navigate("/user/login");
     } catch (err) {
       console.log(err.response);
@@ -42,16 +42,14 @@ const Signup = ({ signupForm, setSignUpForm }) => {
 
   return (
     <form
-      className= {signupForm && "appears"}
+      className={signupForm && "appears"}
       method="post"
       onSubmit={(e) => {
         e.preventDefault();
         fetchData();
       }}
     >
-      <div
-        className= "signup-form"
-      ></div>
+      <div className="signup-form"></div>
       <div className="form-container">
         <div
           className="close"
@@ -84,7 +82,10 @@ const Signup = ({ signupForm, setSignUpForm }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className="checkbox">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            onChange={(e) => setNewsLetter(e.target.value)}
+          />
           <h3>S'inscrire à notre newsletter</h3>
         </div>
         <button type="submit" className="signup-btn">
