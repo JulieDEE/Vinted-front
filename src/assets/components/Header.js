@@ -1,10 +1,12 @@
 import logo from "../images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Cookies from "js-cookie";
 
-const Header = ({ userToken, setUserToken }) => {
+const Header = ({ userToken, setUserToken, setSignUpForm }) => {
   const navigate = useNavigate();
+
 
 
   return (
@@ -23,7 +25,7 @@ const Header = ({ userToken, setUserToken }) => {
         <div className="log">
           <button
             className="inscription-btn"
-            onClick={() => navigate("/user/signup")}
+            onClick={() => setSignUpForm(true)}
           >
             S'inscrire
           </button>
@@ -48,6 +50,8 @@ const Header = ({ userToken, setUserToken }) => {
         </div>
       )}
     </header>
+
+    
   );
 };
 

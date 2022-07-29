@@ -1,56 +1,82 @@
-.signup-form{
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap : 20px;
-    padding: 0 20px;
-  
+form{
+    display: none;
 }
 
-.signup-form input{
-    height: 50px;
-    border-bottom: 1px solid lightsalmon;
-    border-radius: 0;
-    background-color: white;
+.signup-form {
+  width: 100vw;
+  z-index: 1;
+  height: 100vh;
+  gap: 20px;
+  position : absolute;
+  background-color: black;
+  opacity: 50%;
+}
+
+.form-container {
+  width: 450px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px;
+  height: 500px;
+  gap: 20px;
+  position: absolute;
+  left: 35%;
+  top: 20%;
+  z-index: 1;
+  opacity: 1;
+}
+
+.item {
+  height: 40px;
+  border-bottom: 1px solid lightsalmon;
+  border-radius: 0;
+  background-color: white;
 }
 
 .checkbox {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    gap : 20px; 
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
 }
 
-.checkbox h3{
-font-weight: 400;
+.checkbox h3 {
+  font-weight: 400;
 }
 
-.checkbox input{
-    height: 50px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 25px;
+.checkbox input {
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 25px;
 }
 
-.signup-btn{
-    height: 50px;
-    background-color: #02B2BC;
-    width: 100%;
-    border-radius: 10px;
-    border: none;
-    color : white;
-    font-size: 20px;
-    cursor: pointer;
+.signup-btn {
+  height: 50px;
+  background-color: #02b2bc;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .connect {
-    font-size: 13px;
-    color :#02B2BC;
-    cursor: pointer;
+  font-size: 13px;
+  color: #02b2bc;
+  cursor: pointer;
 }
 
+.appears {
+  display: block;
+}
 
-
+.close{
+    align-self: flex-end;
+    cursor: pointer;
+}

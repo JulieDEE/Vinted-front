@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Signup = ({ signupForm, setSignUpForm }) => {
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsLetter] = useState(false);
 
-    const navigate = useNavigate()
-    
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (signupForm) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [signupForm]);
+
   const fetchData = async () => {
     try {
       const response = await axios.post(
@@ -21,13 +29,12 @@ const Signup = () => {
           newsletter,
         }
       );
-        
-        const token = response.data.token
-        
-        console.log(response.data);
 
-        navigate("/user/login")
+      const token = response.data.token;
 
+      console.log(response.data);
+      setSignUpForm(!signupForm)
+      navigate("/user/login");
     } catch (err) {
       console.log(err.response);
     }
@@ -35,43 +42,56 @@ const Signup = () => {
 
   return (
     <form
-      className="signup-form wrapper"
+      className= {signupForm && "appears"}
       method="post"
       onSubmit={(e) => {
         e.preventDefault();
         fetchData();
       }}
     >
-      <h2>S'inscrire</h2>
-      <input
-        type="text"
-        className="name"
-        placeholder="Nom d'utilisateur"
-        value={username}
-        onChange={(e) => setUserName(e.target.value)}
-      />
-      <input
-        type="email"
-        className="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        className="password"
-        placeholder="Mot de passe"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <div className="checkbox">
-        <input type="checkbox" />
-        <h3>S'inscrire à notre newsletter</h3>
+      <div
+        className= "signup-form"
+      ></div>
+      <div className="form-container">
+        <div
+          className="close"
+          onClick={() => {
+            setSignUpForm(!signupForm);
+          }}
+        >
+          X
+        </div>
+        <h2>S'inscrire</h2>
+        <input
+          type="text"
+          className="item name"
+          placeholder="Nom d'utilisateur"
+          value={username}
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        <input
+          type="email"
+          className="item email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          className="item password"
+          placeholder="Mot de passe"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <div className="checkbox">
+          <input type="checkbox" />
+          <h3>S'inscrire à notre newsletter</h3>
+        </div>
+        <button type="submit" className="signup-btn">
+          S'inscrire
+        </button>
+        <p className="connect">Tu as déjà un compte ? Connecte-toi !</p>
       </div>
-      <button type="submit" className="signup-btn">
-        S'inscrire
-      </button>
-      <p className="connect">Tu as déjà un compte ? Connecte-toi !</p>
     </form>
   );
 };

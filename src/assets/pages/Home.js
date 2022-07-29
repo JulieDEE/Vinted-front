@@ -4,6 +4,8 @@ import hero from "../images/hero.jpg";
 import tear from "../images/tear.svg"
 
 const Home = ({ data }) => {
+
+
   return (
     <div className="app">
       <div className="hero-banner">
