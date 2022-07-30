@@ -2,29 +2,24 @@ import logo from "../images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useState } from "react";
 
 const Header = ({
   userToken,
   setUserToken,
   setSignUpForm,
   setConnectForm,
-  filterOffers,
+  searchBar,
+  setSearchBar,
+  sort,
+  setSort,
+  setPriceMax,
+  setPriceMin,
+  priceMin,
+  priceMax,
 }) => {
   const navigate = useNavigate();
 
-  const [searchBar, setSearchBar] = useState("");
-
-  console.log(searchBar);
-
-  const handleSearch = (e) => {
-    setSearchBar(e.target.value);
-    if (searchBar) {
-      filterOffers(`title=${searchBar}`);
-    } else {
-      filterOffers();
-    }
-  };
+  console.log(sort);
 
   return (
     <header>
@@ -40,20 +35,34 @@ const Header = ({
             type="search"
             placeholder="Rechercher des articles"
             value={searchBar}
-            onChange={handleSearch}
+            onChange={(e) => {
+              setSearchBar(e.target.value);
+            }}
           />
         </div>
         <div className="filters">
           <button
             className="trie"
             onClick={() => {
-              filterOffers("sort=descending");
+              setSort(!sort);
             }}
           >
-            Trier par prix
+            <div className={sort ? "round change" : "round"}></div>
           </button>
-          <input className="price-filter" type="text" placeholder="Prix Min" />
-          <input className="price-filter" type="text" placeholder="Prix Max" />
+          <input
+            className="price-filter"
+            type="text"
+            placeholder="Prix Min"
+            value={priceMin}
+            onChange={(e) => setPriceMin(e.target.value)}
+          />
+          <input
+            className="price-filter"
+            type="text"
+            placeholder="Prix Max"
+            value={priceMax}
+            onChange={(e) => setPriceMax(e.target.value)}
+          />
         </div>
       </div>
 

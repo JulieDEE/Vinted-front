@@ -1,4 +1,3 @@
-
 /* NAVBAR */
 
 header {
@@ -15,46 +14,66 @@ header {
   cursor: pointer;
 }
 
-.search{
+.search {
   display: flex;
   flex-direction: column;
-  flex : 1;
+  flex: 1;
   width: 100%;
-  gap : 10px;
+  gap: 10px;
 }
 
 .searchBar {
-  background-color: #F5F6F7;
+  background-color: #f5f6f7;
   height: 39px;
   width: 80%;
-  margin : 0 50px;
+  margin: 0 50px;
   border-radius: 5px;
   display: flex;
   align-items: center;
-  padding : 10px;
+  padding: 10px;
 }
 
-.filters{
+.filters {
   display: flex;
-    margin : 0 50px;
-    gap : 10px;
+  margin: 0 50px;
+  gap: 10px;
 }
 
-.trie{
+.trie {
   height: 30px;
-  width: 200px;
+  width: 70px;
+  border: none;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-.price-filter{
+.round {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #017782;
+  position: absolute;
+  transition: all 1s ease-in;
+  cursor: pointer;
+  animation: returnPosition 1s forwards;
+}
+
+.change {
+  animation: changeButton 1s forwards;
+}
+
+.price-filter {
   width: 32%;
 }
 
-input{
-width: 100%;
-height: 100%;
-padding : 10px;
-border: none;
-background-color: #F5F6F7;
+input {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #f5f6f7;
   border-radius: 5px;
 }
 
@@ -62,84 +81,103 @@ input:focus {
   outline: none;
 }
 
-.log{
+.log {
   display: flex;
-  gap : 20px;
+  gap: 20px;
   margin-left: 30px;
 }
 
-.log button{
+.log button {
   height: 35px;
   border-radius: 5px;
-  padding : 0 10px;
+  padding: 0 10px;
   cursor: pointer;
 }
 
-.inscription-btn{
-  color :#017782;
-  border : 1px solid #017782;
+.inscription-btn {
+  color: #017782;
+  border: 1px solid #017782;
   background-color: white;
 }
 
-.connect-btn{
+.connect-btn {
   background-color: #017782;
   color: white;
-  border : none;
+  border: none;
 }
 
-.disconnect-btn{
+.disconnect-btn {
   background-color: #e72753;
   color: white;
-  border : none;
+  border: none;
 }
-
-
-
 
 /* HEROS BANNER  */
 
-.hero-banner{
-height: 450px;
-width: 100vw;
-position : relative;
-margin-bottom: 20px;
+.hero-banner {
+  height: 450px;
+  width: 100vw;
+  position: relative;
+  margin-bottom: 20px;
 }
 
-.hero-banner .hero{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+.hero-banner .hero {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
-.banner-text{
-    height: 270px;
-    background-color: white;
-    width: 40%;
-    position : absolute;
-    top : 20%;
-    left : 20px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap : 50px;
-    padding : 25px;
+.banner-text {
+  height: 270px;
+  background-color: white;
+  width: 40%;
+  position: absolute;
+  top: 20%;
+  left: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  padding: 25px;
 }
 
-.hero-btn{
-    width: 187px;
-    height: 45px;
-    background-color: #017782;
-    border : none;
-    border-radius: 5px;
-    color : white;
-    font-size: 16px;
-    cursor: pointer;
+.hero-btn {
+  width: 187px;
+  height: 45px;
+  background-color: #017782;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.tear{
-  position : absolute;
-  bottom : 0;
-  right : 0; 
+.tear {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   height: 10%;
+}
+
+@keyframes changeButton {
+  from {
+    background-color: #017782;;
+    transform: translateX(0);
+  }
+  to {
+    background-color: grey;
+    transform: translateX(40px);
+  }
+}
+
+@keyframes returnPosition {
+  from {
+    background-color: grey;
+    transform: translateX(40px);
+  }
+  to {
+    background-color: #017782;
+    transform: translateX(0);
+  }
 }

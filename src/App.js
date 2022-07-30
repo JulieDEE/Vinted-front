@@ -20,44 +20,74 @@ import Cookies from "js-cookie";
 
 library.add(faMagnifyingGlass);
 
+// DEBUT DE MA FONCTION APP
+
 function App() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [userToken, setUserToken] = useState(Cookies.get("token") || null);
   const [signupForm, setSignUpForm] = useState(false);
   const [connectForm, setConnectForm] = useState(false);
-  const [dataFilter, setDataFilters] = useState(null);
+  const [searchBar, setSearchBar] = useState("");
+  const [sort, setSort] = useState(false);
+  const [priceMin, setPriceMin] = useState(null);
+  const [priceMax, setPriceMax] = useState(null);
 
   // appel de mon serveur pour récupérer toutes les offres disponibles
 
-  const fetchData = async () => {
-    const response = await axios.get(
-      "https://vinted-api-serveur.herokuapp.com/"
-    );
-    setData(response.data);
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      let filters = "";
+
+      if (searchBar) {
+        if (filters) {
+          filters += `&title=${searchBar}`;
+        } else {
+          filters += `title=${searchBar}`;
+        }
+      }
+
+      if (priceMin) {
+        if (filters) {
+          filters += `&minPrice=${priceMin}`;
+        } else {
+          filters += `minPrice=${priceMin}`;
+        }
+      }
+
+      if (priceMax) {
+        if (filters) {
+          filters += `&maxPrice=${priceMax}`;
+        } else {
+          filters += `maxPrice=${priceMax}`;
+        }
+      }
+
+      if (sort) {
+        if (filters) {
+          filters += `&sort=descending`;
+        } else {
+          filters += `sort=descending`;
+        }
+      }
+
+      if (!sort) {
+        if (filters) {
+          filters += `&sort=ascending`;
+        } else {
+          filters += `sort=ascending`;
+        }
+      }
+
+      const response = await axios.get(
+        "https://vinted-api-serveur.herokuapp.com/offers?" + filters
+      );
+      setData(response.data);
+      setIsLoading(false);
+      console.log(filters);
+    };
     fetchData();
-    // eslint-disable-next-line
-  }, []);
-
-  //apel du serveur pour obtenir toutes les offres filtrées :
-
-  const filterOffers = async (filter) => {
-    const response = await axios.get(
-      `https://vinted-api-serveur.herokuapp.com/offers?${filter}`
-    );
-    setDataFilters(response.data);
-    setIsLoading(false);
-    console.log(response.data);
-  };
-
-  useEffect(() => {
-    fetchData();
-    // eslint-disable-next-line
-  }, []);
+  }, [searchBar, priceMin, priceMax, sort]);
 
   return isLoading ? (
     console.log("is Loading")
@@ -70,11 +100,18 @@ function App() {
         userToken={userToken}
         setSignUpForm={setSignUpForm}
         setConnectForm={setConnectForm}
-        filterOffers={filterOffers}
+        searchBar={searchBar}
+        setSearchBar={setSearchBar}
+        sort={sort}
+        setSort={setSort}
+        setPriceMax={setPriceMax}
+        setPriceMin={setPriceMin}
+        priceMax={priceMax}
+        priceMin={priceMin}
       />
 
       <Routes>
-        <Route path="/" element={<Home data={data} userToken={userToken} dataFilter={dataFilter} />} />
+        <Route path="/" element={<Home data={data} userToken={userToken} />} />
         <Route path={`/product/:productId`} element={<Product data={data} />} />
         <Route path={`/user/signup`} element={<Signup />} />
         <Route
