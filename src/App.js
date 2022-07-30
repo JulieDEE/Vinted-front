@@ -30,8 +30,7 @@ function App() {
   const [connectForm, setConnectForm] = useState(false);
   const [searchBar, setSearchBar] = useState("");
   const [sort, setSort] = useState(false);
-  const [priceMin, setPriceMin] = useState(null);
-  const [priceMax, setPriceMax] = useState(null);
+  const [fetchRangeValues, setFetchRangeValues] = useState([0, 100000]);
 
   // appel de mon serveur pour récupérer toutes les offres disponibles
 
@@ -40,54 +39,27 @@ function App() {
       let filters = "";
 
       if (searchBar) {
-        if (filters) {
-          filters += `&title=${searchBar}`;
-        } else {
-          filters += `title=${searchBar}`;
-        }
-      }
-
-      if (priceMin) {
-        if (filters) {
-          filters += `&minPrice=${priceMin}`;
-        } else {
-          filters += `minPrice=${priceMin}`;
-        }
-      }
-
-      if (priceMax) {
-        if (filters) {
-          filters += `&maxPrice=${priceMax}`;
-        } else {
-          filters += `maxPrice=${priceMax}`;
-        }
+        filters += `&title=${searchBar}`;
       }
 
       if (sort) {
-        if (filters) {
-          filters += `&sort=descending`;
-        } else {
-          filters += `sort=descending`;
-        }
+        filters += `&sort=descending`;
       }
 
       if (!sort) {
-        if (filters) {
-          filters += `&sort=ascending`;
-        } else {
-          filters += `sort=ascending`;
-        }
+        filters += `&sort=ascending`;
       }
 
       const response = await axios.get(
-        "https://vinted-api-serveur.herokuapp.com/offers?" + filters
+        `https://vinted-api-serveur.herokuapp.com/offers?minPrice=${fetchRangeValues[0]}&maxPrice=${fetchRangeValues[1]}` +
+          filters
       );
       setData(response.data);
       setIsLoading(false);
       console.log(filters);
     };
     fetchData();
-  }, [searchBar, priceMin, priceMax, sort]);
+  }, [searchBar, fetchRangeValues, sort]);
 
   return isLoading ? (
     console.log("is Loading")
@@ -104,10 +76,7 @@ function App() {
         setSearchBar={setSearchBar}
         sort={sort}
         setSort={setSort}
-        setPriceMax={setPriceMax}
-        setPriceMin={setPriceMin}
-        priceMax={priceMax}
-        priceMin={priceMin}
+        setFetchRangeValues={setFetchRangeValues}
       />
 
       <Routes>

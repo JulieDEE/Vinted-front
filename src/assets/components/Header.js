@@ -2,6 +2,8 @@ import logo from "../images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import * as React from "react";
+import PriceRange from "./PriceRange";
 
 const Header = ({
   userToken,
@@ -12,14 +14,10 @@ const Header = ({
   setSearchBar,
   sort,
   setSort,
-  setPriceMax,
-  setPriceMin,
-  priceMin,
-  priceMax,
+  setFetchRangeValues,
 }) => {
   const navigate = useNavigate();
 
-  console.log(sort);
 
   return (
     <header>
@@ -41,6 +39,7 @@ const Header = ({
           />
         </div>
         <div className="filters">
+          <p>Trier par prix : </p>
           <button
             className="trie"
             onClick={() => {
@@ -49,20 +48,8 @@ const Header = ({
           >
             <div className={sort ? "round change" : "round"}></div>
           </button>
-          <input
-            className="price-filter"
-            type="text"
-            placeholder="Prix Min"
-            value={priceMin}
-            onChange={(e) => setPriceMin(e.target.value)}
-          />
-          <input
-            className="price-filter"
-            type="text"
-            placeholder="Prix Max"
-            value={priceMax}
-            onChange={(e) => setPriceMax(e.target.value)}
-          />
+          <p>Prix entre : </p>
+          <PriceRange setFetchRangeValues={setFetchRangeValues}/>
         </div>
       </div>
 
