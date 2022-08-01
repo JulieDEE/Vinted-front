@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+
 
 const Connect = ({ setUserToken, connectForm, setConnectForm }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,8 +18,9 @@ const Connect = ({ setUserToken, connectForm, setConnectForm }) => {
     }
   }, [connectForm]);
 
-  const handleConnexion = async () => {
+  const handleConnexion = async (e) => {
     try {
+      e.preventDefault();
       const response = await axios.post(
         "https://vinted-api-serveur.herokuapp.com/user/login",
         {
@@ -25,22 +28,24 @@ const Connect = ({ setUserToken, connectForm, setConnectForm }) => {
           password,
         }
       );
-      Cookies.set("token", response.data.token);
-      setUserToken(response.data.token);
 
+      setUserToken(response.data.token);
+      Cookies.set("token", response.data.token);
+
+      setConnectForm(false);
       navigate("/");
     } catch (error) {
-      console.log(error.response);
+      console.log(error);
     }
   };
 
+  if (!connectForm) {
+    return null;
+  }
   return (
     <form
-      className={connectForm && "appears"}
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleConnexion();
-      }}
+      className={connectForm ? "appears" : undefined}
+      onSubmit={handleConnexion}
     >
       <div className="connect-form"></div>
       <div className="connect-form-container">

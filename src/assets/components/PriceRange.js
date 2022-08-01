@@ -7,8 +7,6 @@ const MAX = 100000;
 const PriceRange = ({ setFetchRangeValues }) => {
   const [rangeValues, setRangeValues] = useState([10, 100000]);
 
-  console.log(rangeValues);
-
   return (
     <Range
       step={5}

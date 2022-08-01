@@ -30,11 +30,8 @@ const Signup = ({ signupForm, setSignUpForm }) => {
         }
       );
 
-      // const token = response.data.token;
-
-      console.log(response.data);
       setSignUpForm(!signupForm);
-      navigate("/user/login");
+      navigate("/user/signupsuccess");
     } catch (err) {
       console.log(err.response);
     }

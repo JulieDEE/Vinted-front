@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 //import icones :
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -15,8 +16,8 @@ import Home from "./assets/pages/Home";
 import Product from "./assets/pages/Product";
 import Signup from "./assets/pages/Signup";
 import Connect from "./assets/pages/Connect";
-
-import Cookies from "js-cookie";
+import SignupSuccess from "./assets/pages/SignupSuccess";
+import PublishOffer from "./assets/pages/PublishOffer";
 
 library.add(faMagnifyingGlass);
 
@@ -56,7 +57,6 @@ function App() {
       );
       setData(response.data);
       setIsLoading(false);
-      console.log(filters);
     };
     fetchData();
   }, [searchBar, fetchRangeValues, sort]);
@@ -66,7 +66,12 @@ function App() {
   ) : (
     <Router>
       <Signup signupForm={signupForm} setSignUpForm={setSignUpForm} />
-      <Connect connectForm={connectForm} setConnectForm={setConnectForm} />
+      <Connect
+        connectForm={connectForm}
+        setConnectForm={setConnectForm}
+        setUserToken={setUserToken}
+        userToken={userToken}
+      />
       <Header
         setUserToken={setUserToken}
         userToken={userToken}
@@ -82,12 +87,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home data={data} userToken={userToken} />} />
         <Route path={`/product/:productId`} element={<Product data={data} />} />
-        <Route path={`/user/signup`} element={<Signup />} />
+        <Route path={`/user/signupsuccess`} element={<SignupSuccess />} />
         <Route
           path={`/user/login`}
           element={
             <Connect setUserToken={setUserToken} userToken={userToken} />
           }
+        />
+        <Route
+          path={`/offer/publish`}
+          element={<PublishOffer userToken={userToken} />}
         />
       </Routes>
     </Router>

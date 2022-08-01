@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //import static images :
 import hero from "../images/hero.jpg";
 import tear from "../images/tear.svg";
 
 const Home = ({ data }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="app">
       <div className="hero-banner">
@@ -11,7 +13,12 @@ const Home = ({ data }) => {
         <img className="tear" src={tear} alt="" />
         <div className="banner-text">
           <h1>Prêts à faire du tri dans vos placards ?</h1>
-          <button className="hero-btn">Commencez à vendre</button>
+          <button
+            className="hero-btn"
+            onClick={() => navigate("/offer/publish")}
+          >
+            Commencez à vendre
+          </button>
         </div>
       </div>
 
