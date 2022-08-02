@@ -10,12 +10,13 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 //import components :
 import Header from "./assets/components/Header";
+import Connect from "./assets/components/Connect";
 
 //import pages :
 import Home from "./assets/pages/Home";
 import Product from "./assets/pages/Product";
 import Signup from "./assets/pages/Signup";
-import Connect from "./assets/pages/Connect";
+import ConnectPage from "./assets/pages/ConnectPage";
 import SignupSuccess from "./assets/pages/SignupSuccess";
 import PublishOffer from "./assets/pages/PublishOffer";
 
@@ -56,6 +57,7 @@ function App() {
           filters
       );
       setData(response.data);
+      console.log(response.data);
       setIsLoading(false);
     };
     fetchData();
@@ -91,7 +93,12 @@ function App() {
         <Route
           path={`/user/login`}
           element={
-            <Connect setUserToken={setUserToken} userToken={userToken} />
+            <ConnectPage
+              connectForm={connectForm}
+              setConnectForm={setConnectForm}
+              setUserToken={setUserToken}
+              userToken={userToken}
+            />
           }
         />
         <Route

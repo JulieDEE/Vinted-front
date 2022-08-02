@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import user from "../images/user.png";
 
 const Product = () => {
   const { productId } = useParams();
@@ -58,9 +59,16 @@ const Product = () => {
             <h2> {data.product_name} </h2>
             <p> {data.product_description} </p>
             <div className="user-card">
-              <div className="user-img">
-                <img src={data.owner.account.avatar.secure_url} alt="" />
-              </div>
+              {data.owner.account.avatar ? (
+                <div className="user-img">
+                  <img src={data.owner.account.avatar.secure_url} alt="" />
+                </div>
+              ) : (
+                <div className="user-img">
+                  <img src={user} alt="default image of user" />
+                </div>
+              )}
+
               <p>{data.owner.account.username} </p>
             </div>
           </div>

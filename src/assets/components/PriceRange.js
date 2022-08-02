@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
 
 const MIN = 0;
-const MAX = 100000;
+const MAX = 10000;
 
 const PriceRange = ({ setFetchRangeValues }) => {
-  const [rangeValues, setRangeValues] = useState([10, 100000]);
+  const [rangeValues, setRangeValues] = useState([10, 10000]);
 
   return (
     <Range

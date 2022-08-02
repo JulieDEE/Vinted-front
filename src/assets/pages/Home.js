@@ -1,10 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
-//import static images :
+
+//IMPORT STATIC IMAGES :
 import hero from "../images/hero.jpg";
 import tear from "../images/tear.svg";
 
-const Home = ({ data }) => {
+const Home = ({ data, userToken }) => {
   const navigate = useNavigate();
+
+  const isUserConnected = () => {
+    if (userToken) {
+      navigate("/offer/publish");
+    } else {
+      navigate("/user/login");
+    }
+  };
 
   return (
     <div className="app">
@@ -13,15 +22,12 @@ const Home = ({ data }) => {
         <img className="tear" src={tear} alt="" />
         <div className="banner-text">
           <h1>Prêts à faire du tri dans vos placards ?</h1>
-          <button
-            className="hero-btn"
-            onClick={() => navigate("/offer/publish")}
-          >
+          <button className="hero-btn" onClick={isUserConnected}>
             Commencez à vendre
           </button>
         </div>
       </div>
-
+      
       <div className="seeAll wrapper">
         <h1>Articles populaires </h1>
         <a href="/home">Tout voir</a>

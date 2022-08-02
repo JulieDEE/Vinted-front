@@ -37,9 +37,6 @@ gap : 30px;
 }
 
 
-
-
-
 .item {
   height: 50px;
   border-bottom: 1px solid lightsalmon;
@@ -57,4 +54,50 @@ gap : 30px;
   font-size: 20px;
   cursor: pointer;
   margin-top: 30px;
+}
+
+.connect-form-page-container{
+  width: 600px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  padding: 20px 30px;
+  height: 500px;
+  gap: 60px;
+  border-radius: 5px;
+}
+
+.form-page{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.connect-page{
+display: flex;
+flex-direction: column;
+width: 100%;
+align-items: center;
+justify-content: space-between;
+gap : 50px;
+}
+
+.message-page{
+  display: flex;
+  flex-direction: column;
+  gap : 15px;
+  color : #05B1BC
+}
+
+.connect-page h1{
+  text-align: center;
+  color : black;
+}
+
+.connect-page p{
+cursor: pointer;
+color : #05B1BC
 }

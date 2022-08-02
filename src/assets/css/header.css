@@ -6,7 +6,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 10px 30px;
 }
 
 .logo img {
@@ -101,16 +101,33 @@ input:focus {
   background-color: white;
 }
 
+.inscription-btn:active {
+  transform: scaleY(0.9);
+  background-color: #026b7429;
+  transition: all 0.1s ease;
+}
+
 .connect-btn {
   background-color: #017782;
   color: white;
   border: none;
 }
 
+.connect-btn:active {
+  transform: scaleY(0.9);
+  background-color: #026a74;
+  transition: all 0.1s ease;
+}
+
 .disconnect-btn {
   background-color: #e72753;
   color: white;
   border: none;
+}
+
+.disconnect-btn:active {
+  transform: scaleY(0.9);
+  transition: all 0.1s ease;
 }
 
 /* HEROS BANNER  */
@@ -154,6 +171,13 @@ input:focus {
   cursor: pointer;
 }
 
+.hero-btn:active {
+  transform: scaleY(0.9);
+  background-color: #026a74;
+  transition: all 0.1s ease;
+}
+
+
 .tear {
   position: absolute;
   bottom: 0;
@@ -163,7 +187,7 @@ input:focus {
 
 @keyframes changeButton {
   from {
-    background-color: #2cb1ba;;
+    background-color: #2cb1ba;
     transform: translateX(0);
   }
   to {
