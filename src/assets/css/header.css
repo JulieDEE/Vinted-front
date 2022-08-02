@@ -54,7 +54,7 @@ header {
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  background-color: #2cb1ba;
+  background-color: #017782;
   position: absolute;
   transition: all 1s ease-in;
   cursor: pointer;
@@ -187,7 +187,7 @@ input:focus {
 
 @keyframes changeButton {
   from {
-    background-color: #2cb1ba;
+    background-color: #017782;
     transform: translateX(0);
   }
   to {
@@ -202,7 +202,7 @@ input:focus {
     transform: translateX(40px);
   }
   to {
-    background-color: #2cb1ba;
+    background-color: #017782;
     transform: translateX(0);
   }
 }

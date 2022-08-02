@@ -4,6 +4,7 @@
 @import "./assets/css/signup.css";
 @import "./assets/css/connect.css";
 @import "./assets/css/offerPublish.css";
+@import "./assets/css/payment.css";
 
 * {
   margin: 0;

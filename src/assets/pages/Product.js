@@ -1,12 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import user from "../images/user.png";
 
-const Product = () => {
+const Product = ({ userToken }) => {
   const { productId } = useParams();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     const response = await axios.get(
@@ -72,15 +73,27 @@ const Product = () => {
               <p>{data.owner.account.username} </p>
             </div>
           </div>
-          <button className="btn-card-pay"> Acheter </button>
+          <button
+            className="btn-card-pay"
+            onClick={() => {
+              if (userToken) {
+                navigate("/payment", {
+                  state: {
+                    price: data.product_price,
+                    name: data.product_name,
+                  },
+                });
+              } else {
+                navigate("/user/login");
+              }
+            }}
+          >
+            Acheter
+          </button>
         </div>
       </div>
     </div>
   );
 };
-
-// function getObjKey(obj, value) {
-//   return Object.keys(obj).find(key => obj[key] === value);
-// }
 
 export default Product;

@@ -25,7 +25,7 @@ const Connect = ({ setUserToken, connectForm, setConnectForm }) => {
       Cookies.set("token", response.data.token);
 
       setConnectForm(false);
-      navigate("/offer/publish");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -37,7 +37,10 @@ const Connect = ({ setUserToken, connectForm, setConnectForm }) => {
         <div className="connect-page">
           <div className="message-page">
             <h1>Bienvenue ! </h1>
-            <h2>Connecte-toi pour pouvoir poster des offres</h2>
+            <h2>
+              Connecte-toi pour pouvoir poster des offres ou effectuer tes
+              achats !
+            </h2>
           </div>
           <input
             className="item"

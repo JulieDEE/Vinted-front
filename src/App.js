@@ -19,6 +19,7 @@ import Signup from "./assets/pages/Signup";
 import ConnectPage from "./assets/pages/ConnectPage";
 import SignupSuccess from "./assets/pages/SignupSuccess";
 import PublishOffer from "./assets/pages/PublishOffer";
+import Payment from "./assets/pages/Payment";
 
 library.add(faMagnifyingGlass);
 
@@ -88,7 +89,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home data={data} userToken={userToken} />} />
-        <Route path={`/product/:productId`} element={<Product data={data} />} />
+        <Route path={`/product/:productId`} element={<Product data={data} userToken={userToken} />} />
         <Route path={`/user/signupsuccess`} element={<SignupSuccess />} />
         <Route
           path={`/user/login`}
@@ -105,6 +106,7 @@ function App() {
           path={`/offer/publish`}
           element={<PublishOffer userToken={userToken} />}
         />
+        <Route path={`/payment`} element={<Payment />} />
       </Routes>
     </Router>
   );

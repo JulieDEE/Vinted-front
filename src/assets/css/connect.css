@@ -39,14 +39,14 @@ gap : 30px;
 
 .item {
   height: 50px;
-  border-bottom: 1px solid lightsalmon;
+  border-bottom: 1px solid lightgrey;
   border-radius: 0;
   background-color: white;
 }
 
 .connect-btn-2 {
   height: 50px;
-  background-color: #02b2bc;
+  background-color: #017782;
   width: 100%;
   border-radius: 10px;
   border: none;
@@ -54,6 +54,10 @@ gap : 30px;
   font-size: 20px;
   cursor: pointer;
   margin-top: 30px;
+}
+
+.connect-btn-2:active{
+  transform: translateY(1px);
 }
 
 .connect-form-page-container{
@@ -89,15 +93,20 @@ gap : 50px;
   display: flex;
   flex-direction: column;
   gap : 15px;
-  color : #05B1BC
+  color : #017782
 }
 
 .connect-page h1{
   text-align: center;
   color : black;
+  font-size: 28px;
+}
+
+.message-page h2{
+  font-size: 16px;
 }
 
 .connect-page p{
 cursor: pointer;
-color : #05B1BC
+color : #017782
 }

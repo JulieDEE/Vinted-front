@@ -1,0 +1,108 @@
+.payment {
+  background-color: lightgrey;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.order {
+  background-color: white;
+  height: 600px;
+  width: 40%;
+  margin-top: 50px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 5px;
+}
+
+.order h1 {
+  color: #017782;
+  font-size: 20px;
+}
+
+.top-order {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid lightgrey;
+  padding: 20px 0;
+  height: 25%;
+}
+
+.frais {
+  display: flex;
+}
+
+.frais-title {
+  flex: 1;
+}
+
+.bottom-order {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-check {
+  height: 50px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.payment-btn {
+  height: 50px;
+  border-radius: 5px;
+  padding: 0 10px;
+  cursor: pointer;
+  margin-top: 30px;
+  width: 300px;
+  align-self: center;
+  cursor: pointer;
+  background-color: #017782;
+  color: white;
+  font-size: 18px;
+  border: none;
+}
+
+.payment-btn:active {
+  box-shadow: 5px 5px 5px hsl(0, 0%, 90%);
+  transform: translateY(1px);
+}
+
+.total {
+  display: flex;
+  font-weight: bold;
+}
+
+.total-title {
+  flex: 1;
+}
+
+.total-title {
+  flex: 1;
+}
+
+.total-ammount {
+  width: 10%;
+}
+
+.description-order {
+  margin-top: 30px;
+  color: #017782;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.description-order span {
+  font-weight: bold;
+}

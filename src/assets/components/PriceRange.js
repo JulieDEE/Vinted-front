@@ -34,7 +34,7 @@ const PriceRange = ({ setFetchRangeValues }) => {
               borderRadius: "4px",
               background: getTrackBackground({
                 values: rangeValues,
-                colors: ["#ccc", " #2cb1ba", "#ccc"],
+                colors: ["#ccc", " #017782", "#ccc"],
                 min: MIN,
                 max: MAX,
               }),
@@ -50,11 +50,11 @@ const PriceRange = ({ setFetchRangeValues }) => {
           {...props}
           style={{
             ...props.style,
-            height: "20px",
-            width: "20px",
+            height: "15px",
+            width: "15px",
             borderRadius: "50%",
-            border: isDragged ? "" : "1px solid white",
-            backgroundColor: "#2cb1ba",
+            border: isDragged ? "" : "1px solid #017782",
+            backgroundColor: "#017782",
             outline: "none",
             display: "flex",
             justifyContent: "center",
@@ -65,12 +65,12 @@ const PriceRange = ({ setFetchRangeValues }) => {
             style={{
               position: "absolute",
               top: "-28px",
-              color: "#fff",
+              color: "#017782",
               fontSize: "12px",
               fontFamily: "Maison Neue",
               padding: "4px",
               borderRadius: "4px",
-              backgroundColor: "#2cb1ba",
+              backgroundColor: "#fff",
             }}
           >
             {rangeValues[index]}€
