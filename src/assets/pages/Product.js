@@ -66,7 +66,7 @@ const Product = ({ userToken }) => {
                 </div>
               ) : (
                 <div className="user-img">
-                  <img src={user} alt="default image of user" />
+                  <img src={user} alt="" />
                 </div>
               )}
 

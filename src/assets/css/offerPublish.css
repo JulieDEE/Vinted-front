@@ -1,5 +1,5 @@
 .offerPublish {
-  background-color: #F5F6F7;
+  background-color: #f5f6f7;
   height: 100%;
   width: 100%;
   padding: 40px;
@@ -7,20 +7,22 @@
 
 .offerPublish h1 {
   margin-bottom: 20px;
+  font-size: 30px;
+  color: hsl(185, 98%, 26%);
 }
 
 .sell {
-  height: 100vh;
-  width: 90%;
+  height: 100%;
+  width: 70%;
   display: flex;
   flex-direction: column;
-  background-color: #F5F6F7;
+  background-color: f5f6f7;
   gap: 30px;
 }
 
 .sell-image {
-  border: 1px solid grey;
   background-color: white;
+  border-radius: 10px;
 }
 
 .sell-image-border {
@@ -29,7 +31,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150px;
+  height: 250px;
+  position: relative;
+}
+
+.img-container {
+  position: absolute;
+  top: 0px;
+  left: 100px;
+  width: 250px;
+}
+
+.preview {
+  height: 250px;
+  object-fit: cover;
 }
 
 #files {
@@ -38,9 +53,9 @@
 
 .add-picture {
   height: "30px";
-  border: solid 1px #02b2bc;
+  border: solid 1px hsl(185, 98%, 26%);
   cursor: pointer;
-  color: #02b2bc;
+  color: hsl(185, 98%, 26%);
   padding: 10px;
 }
 
@@ -50,12 +65,15 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .sell-home-title {
   display: flex;
+  align-items: center;
   border-bottom: 1px solid lightgrey;
   height: 40%;
+  padding : 20px 0;
 }
 
 .sell-home-description {
@@ -63,18 +81,21 @@
 }
 
 .sell-input {
-  width: 50%;
+  width: 70%;
   height: 40px;
   padding: 10px;
-  background-color: white;
+  background-color: #f5f6f7;
   border: none;
-  border-bottom: 1px solid grey;
   border-radius: 0;
+  align-self: center;
 }
 
 #sell-textarea {
   height: 90px;
+  margin-top: 10px;
 }
+
+
 
 .sell-home-title h3 {
   flex: 1;
@@ -91,12 +112,19 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-radius: 10px;
 }
 
-.add-offer{
-    width: 200px;
-    align-self: center;
-    height: 100px;
-    cursor: pointer;
-}
+.add-offer {
+  width: 300px;
+  align-self: center;
+  height: 50px;
+  cursor: pointer;
+  margin-top: 25px;
+  border-radius: 10px;
+  border : none;
+  background-color: hsl(185, 98%, 26%);
+  color : white;
+  font-size: 16px;
 
+}

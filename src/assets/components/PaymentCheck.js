@@ -10,7 +10,7 @@ const PaymentCheck = ({ name, price }) => {
   const taxBuy = Number((price * 0.08).toFixed(2));
   const fees = Number((price * 0.1).toFixed(2));
 
-  const totalAmmount = (price + taxBuy + fees).toFixed(2);
+  const totalAmmount = Number((price + taxBuy + fees).toFixed(2));
 
   const handlePayment = async (e) => {
     try {
@@ -21,6 +21,7 @@ const PaymentCheck = ({ name, price }) => {
         name: "L'id de l'acheteur",
       });
       const stripeToken = stripeResponse.token.id;
+      console.log(typeof totalAmmount);
 
       const response = await axios.post(
         "https://vinted-api-serveur.herokuapp.com/payment",
@@ -67,7 +68,7 @@ const PaymentCheck = ({ name, price }) => {
             </div>
             <div className="description-order">
               Il ne vous reste plus qu'une étape avant de recevoir votre
-              <span> {name}</span>. Vous allez payer 
+              <span> {name}</span>. Vous allez payer
               <span> {totalAmmount} </span> euros, frais inclus.
             </div>
             <div className="payment-container">
@@ -75,7 +76,7 @@ const PaymentCheck = ({ name, price }) => {
                 <CardElement />
               </div>
               <button className="payment-btn" type="submit">
-                Confirmer le paiement 
+                Confirmer le paiement
               </button>
             </div>
           </div>

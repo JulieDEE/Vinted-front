@@ -13,6 +13,7 @@ const PublishOffer = ({ userToken }) => {
   const [color, setColor] = useState("");
   const [price, setPrice] = useState("");
   const [condition, setCondition] = useState("");
+  const [preview, setPreview] = useState(null);
 
   const navigate = useNavigate();
 
@@ -50,6 +51,7 @@ const PublishOffer = ({ userToken }) => {
     }
   };
 
+
   return (
     <>
       <div className="offerPublish">
@@ -66,8 +68,17 @@ const PublishOffer = ({ userToken }) => {
                 type="file"
                 onChange={(e) => {
                   setPicture(e.target.files[0]);
+                  setPreview(URL.createObjectURL(e.target.files[0]));
                 }}
               ></input>
+              <div className="img-container">
+                <img
+                  className="preview"
+                  src={preview}
+                  style={{ width: "200px" }}
+                  alt=""
+                />
+              </div>
             </div>
           </div>
 
@@ -162,7 +173,7 @@ const PublishOffer = ({ userToken }) => {
             </div>
           </div>
 
-          <div className="sell-description">
+          <div className="sell-home">
             <div className="sell-home-title">
               <h3>Prix</h3>
               <input
@@ -175,11 +186,10 @@ const PublishOffer = ({ userToken }) => {
                 }}
               />
             </div>
+            <button className="add-offer" type="submit">
+              Ajouter
+            </button>
           </div>
-
-          <button className="add-offer" type="submit">
-            Ajouter
-          </button>
         </form>
       </div>
     </>
